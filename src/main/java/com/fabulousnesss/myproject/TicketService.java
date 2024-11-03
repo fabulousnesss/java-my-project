@@ -3,6 +3,7 @@ package main.java.com.fabulousnesss.myproject;
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 public class TicketService {
     public static Map<String, Ticket> tickets = new HashMap<>(10);
@@ -27,6 +28,14 @@ public class TicketService {
                 String.valueOf(stadiumSector).matches(STADIUM_SECTOR_PATTERN) &&
                 id.matches(ID_PATTERN) &&
                 price.compareTo(BigDecimal.ZERO) >= 0;
+    }
+
+    public static Optional<Ticket> getTicketById(String id) {
+        if (id != null && tickets.containsKey(id)) {
+            return Optional.of(tickets.get(id));
+        } else {
+            return Optional.empty();
+        }
     }
 
     public static void main(String[] args) {
