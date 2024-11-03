@@ -1,8 +1,11 @@
 package main.java.com.fabulousnesss.myproject;
 
 import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.Map;
 
 public class TicketService {
+    public static Map<String, Ticket> tickets = new HashMap<>(10);
     public static final double MAX_BACKPACK_WEIGHT_KG = 8.0;
     public static final String EMPTY_STRING = "";
     public static final String EVENT_CODE_PATTERN = "^\\d{3}$";
