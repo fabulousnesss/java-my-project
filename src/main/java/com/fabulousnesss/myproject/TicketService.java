@@ -45,5 +45,12 @@ public class TicketService {
 
         boolean isSharedByNum = ticket1.shared("111-111-111");
         boolean isSharedByNumAndEmail = ticket1.shared("222-222-222", "email@email.com");
+
+        Client client = new Client();
+        client.getTicket();
+        Admin admin = new Admin();
+        admin.checkTicket(ticket2);
+        client.printRole();
+        admin.printRole();
     }
 }

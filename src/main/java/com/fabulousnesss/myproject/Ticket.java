@@ -3,7 +3,7 @@ package main.java.com.fabulousnesss.myproject;
 import java.math.BigDecimal;
 import java.time.Instant;
 
-public class Ticket {
+public class Ticket extends AbstractPrintable {
     private long creationTime;
     private double backpackWeightKg;
     private int eventCode;
