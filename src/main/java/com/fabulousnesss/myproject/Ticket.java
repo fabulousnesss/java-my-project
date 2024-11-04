@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.time.Instant;
 
 public class Ticket {
-    private final long creationTime;
+    private long creationTime;
     private double backpackWeightKg;
     private int eventCode;
     private boolean isPromo;
@@ -39,5 +39,45 @@ public class Ticket {
             this.ticketId = ticketId;
             this.price = price;
         }
+    }
+
+    public long getCreationTime() {
+        return creationTime;
+    }
+
+    public void setCreationTime(long creationTime) {
+        this.creationTime = creationTime;
+    }
+
+    public double getBackpackWeightKg() {
+        return backpackWeightKg;
+    }
+
+    public void setBackpackWeightKg(double backpackWeightKg) {
+        this.backpackWeightKg = backpackWeightKg;
+    }
+
+    public int getEventCode() {
+        return eventCode;
+    }
+
+    public boolean isPromo() {
+        return isPromo;
+    }
+
+    public char getStadiumSector() {
+        return stadiumSector;
+    }
+
+    public String getConcertHall() {
+        return concertHall;
+    }
+
+    public String getTicketId() {
+        return ticketId;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
     }
 }
