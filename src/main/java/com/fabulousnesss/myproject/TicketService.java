@@ -20,19 +20,19 @@ public class TicketService {
                 concertHall.matches(CONCERT_HALL_PATTERN);
     }
 
-    public static boolean isTicketValid(double backpackWeightKg, int eventCode, char stadiumSector, String concertHall, String id, BigDecimal price) {
-        return concertHall != null && id != null && price != null &&
+    public static boolean isTicketValid(double backpackWeightKg, int eventCode, char stadiumSector, String concertHall, String ticketId, BigDecimal price) {
+        return concertHall != null && ticketId != null && price != null &&
                 backpackWeightKg <= MAX_BACKPACK_WEIGHT_KG &&
                 String.valueOf(eventCode).matches(EVENT_CODE_PATTERN) &&
                 concertHall.matches(CONCERT_HALL_PATTERN) &&
                 String.valueOf(stadiumSector).matches(STADIUM_SECTOR_PATTERN) &&
-                id.matches(ID_PATTERN) &&
+                ticketId.matches(ID_PATTERN) &&
                 price.compareTo(BigDecimal.ZERO) >= 0;
     }
 
-    public static Optional<Ticket> getTicketById(String id) {
-        if (id != null && tickets.containsKey(id)) {
-            return Optional.of(tickets.get(id));
+    public static Optional<Ticket> getTicketByTicketId(String ticketId) {
+        if (ticketId != null && tickets.containsKey(ticketId)) {
+            return Optional.of(tickets.get(ticketId));
         } else {
             return Optional.empty();
         }

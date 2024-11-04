@@ -10,13 +10,13 @@ public class Ticket {
     private boolean isPromo;
     private char stadiumSector;
     private String concertHall;
-    private String id;
+    private String ticketId;
     private BigDecimal price;
 
     public Ticket() {
         this.creationTime = Instant.now().getEpochSecond();
         this.concertHall = TicketService.EMPTY_STRING;
-        this.id = TicketService.EMPTY_STRING;
+        this.ticketId = TicketService.EMPTY_STRING;
         this.price = BigDecimal.ZERO;
     }
 
@@ -28,15 +28,15 @@ public class Ticket {
         }
     }
 
-    public Ticket(double backpackWeightKg, int eventCode, boolean isPromo, char stadiumSector, String concertHall, String id, BigDecimal price) {
+    public Ticket(double backpackWeightKg, int eventCode, boolean isPromo, char stadiumSector, String concertHall, String ticketId, BigDecimal price) {
         this();
-        if (TicketService.isTicketValid(backpackWeightKg, eventCode, stadiumSector, concertHall, id, price)) {
+        if (TicketService.isTicketValid(backpackWeightKg, eventCode, stadiumSector, concertHall, ticketId, price)) {
             this.backpackWeightKg = backpackWeightKg;
             this.eventCode = eventCode;
             this.isPromo = isPromo;
             this.stadiumSector = stadiumSector;
             this.concertHall = concertHall;
-            this.id = id;
+            this.ticketId = ticketId;
             this.price = price;
         }
     }
