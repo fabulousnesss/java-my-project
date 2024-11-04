@@ -42,5 +42,8 @@ public class TicketService {
         Ticket ticket1 = new Ticket();
         Ticket ticket2 = new Ticket(455, "Moon");
         Ticket ticket3 = new Ticket(4.0, 539, true, 'A', "ACE", "*3OP1$#", new BigDecimal("200"));
+
+        boolean isSharedByNum = ticket1.shared("111-111-111");
+        boolean isSharedByNumAndEmail = ticket1.shared("222-222-222", "email@email.com");
     }
 }

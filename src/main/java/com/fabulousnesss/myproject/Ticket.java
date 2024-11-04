@@ -41,6 +41,14 @@ public class Ticket {
         }
     }
 
+    public boolean shared(String phoneNumber) {
+        return true;
+    }
+
+    public boolean shared(String phoneNumber, String email) {
+        return true;
+    }
+
     public long getCreationTime() {
         return creationTime;
     }
