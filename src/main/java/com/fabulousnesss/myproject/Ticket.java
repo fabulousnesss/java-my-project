@@ -2,6 +2,7 @@ package main.java.com.fabulousnesss.myproject;
 
 import java.math.BigDecimal;
 import java.time.Instant;
+import java.util.Objects;
 
 public class Ticket extends AbstractPrintable {
     private long creationTime;
@@ -39,6 +40,52 @@ public class Ticket extends AbstractPrintable {
             this.ticketId = ticketId;
             this.price = price;
         }
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null || this.getClass() != obj.getClass()) {
+            return false;
+        }
+
+        Ticket other = (Ticket) obj;
+        double epsilon = 0.000001d;
+        return this.creationTime == other.creationTime &&
+                Math.abs(this.backpackWeightKg - other.backpackWeightKg) < epsilon &&
+                this.eventCode == other.eventCode &&
+                this.isPromo == other.isPromo &&
+                this.stadiumSector == other.stadiumSector &&
+                Objects.equals(this.concertHall, other.concertHall) &&
+                Objects.equals(this.ticketId, other.ticketId) &&
+                this.price.compareTo(other.price) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+        result = 37 * result + Long.hashCode(creationTime);
+        result = 37 * result + Double.hashCode(backpackWeightKg);
+        result = 37 * result + eventCode;
+        result = 37 * result + (isPromo ? 1 : 0);
+        result = 37 * result + Character.hashCode(stadiumSector);
+        result = 37 * result + (concertHall != null ? concertHall.hashCode() : 0);
+        result = 37 * result + (ticketId != null ? ticketId.hashCode() : 0);
+        result = 37 * result + (price != null ? price.hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Ticket{" +
+                "creationTime=" + creationTime +
+                ", backpackWeightKg=" + backpackWeightKg +
+                ", eventCode=" + eventCode +
+                ", isPromo=" + isPromo +
+                ", stadiumSector=" + stadiumSector +
+                ", concertHall=" + concertHall +
+                ", ticketId=" + ticketId +
+                ", price=" + price +
+                '}';
     }
 
     public boolean shared(String phoneNumber) {
