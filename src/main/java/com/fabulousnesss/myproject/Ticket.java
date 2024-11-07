@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.Objects;
 
-public class Ticket extends AbstractPrintable {
+public class Ticket extends Identity {
     private long creationTime;
     private double backpackWeightKg;
     private int eventCode;

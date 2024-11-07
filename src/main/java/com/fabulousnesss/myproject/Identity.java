@@ -1,7 +1,14 @@
 package main.java.com.fabulousnesss.myproject;
 
-public abstract class AbstractPrintable implements Identifiable {
+public abstract class Identity implements Identifiable {
     private int id;
+
+    @Override
+    public String toString() {
+        return "Identity{" +
+                "id=" + id +
+                '}';
+    }
 
     @Override
     public int getId() {
