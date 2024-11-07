@@ -1,10 +1,9 @@
 package main.java.com.fabulousnesss.myproject;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
-import java.lang.reflect.Field;
+import static main.java.com.fabulousnesss.myproject.utils.AnnotationUtils.NullableWarning;
+
+import main.java.com.fabulousnesss.myproject.utils.AnnotationUtils;
+
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.Objects;
@@ -12,6 +11,7 @@ import java.util.Objects;
 public class Ticket extends Identity {
     private long creationTime;
     private double backpackWeightKg;
+    @NullableWarning
     private int eventCode;
     private boolean isPromo;
     private char stadiumSector;
@@ -24,6 +24,7 @@ public class Ticket extends Identity {
         this.concertHall = TicketService.EMPTY_STRING;
         this.ticketId = TicketService.EMPTY_STRING;
         this.price = BigDecimal.ZERO;
+        AnnotationUtils.printNullableWarnings(this);
     }
 
     public Ticket(int eventCode, String concertHall) {
@@ -91,20 +92,6 @@ public class Ticket extends Identity {
                 ", ticketId=" + ticketId +
                 ", price=" + price +
                 '}';
-    }
-
-    @Retention(RetentionPolicy.RUNTIME)
-    @Target(ElementType.FIELD)
-    public @interface NullableWarning {
-    }
-
-    private void printNullableWarnings() {
-        for (Field field : this.getClass().getDeclaredFields()) {
-            field.setAccessible(true);
-            if (field.isAnnotationPresent(NullableWarning.class)) {
-                System.out.println("Variable [" + field.getName() + "] is null in [" + this.getClass().getSimpleName() + "]!");
-            }
-        }
     }
 
     public boolean shared(String phoneNumber) {
