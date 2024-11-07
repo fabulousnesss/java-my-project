@@ -1,4 +1,8 @@
-package main.java.com.fabulousnesss.myproject;
+package main.java.com.fabulousnesss.myproject.services;
+
+import main.java.com.fabulousnesss.myproject.models.Admin;
+import main.java.com.fabulousnesss.myproject.models.Client;
+import main.java.com.fabulousnesss.myproject.models.Ticket;
 
 import java.math.BigDecimal;
 import java.util.HashMap;

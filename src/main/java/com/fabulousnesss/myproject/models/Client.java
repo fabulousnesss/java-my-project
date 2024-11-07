@@ -1,4 +1,6 @@
-package main.java.com.fabulousnesss.myproject;
+package main.java.com.fabulousnesss.myproject.models;
+
+import main.java.com.fabulousnesss.myproject.core.User;
 
 public class Client extends User {
     private Ticket ticket;

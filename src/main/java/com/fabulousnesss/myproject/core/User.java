@@ -1,4 +1,4 @@
-package main.java.com.fabulousnesss.myproject;
+package main.java.com.fabulousnesss.myproject.core;
 
 public abstract class User extends Identity {
     private String role;

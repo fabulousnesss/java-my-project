@@ -1,7 +1,9 @@
-package main.java.com.fabulousnesss.myproject;
+package main.java.com.fabulousnesss.myproject.models;
 
 import static main.java.com.fabulousnesss.myproject.utils.AnnotationUtils.NullableWarning;
 
+import main.java.com.fabulousnesss.myproject.services.TicketService;
+import main.java.com.fabulousnesss.myproject.core.Identity;
 import main.java.com.fabulousnesss.myproject.utils.AnnotationUtils;
 
 import java.math.BigDecimal;
