@@ -6,6 +6,6 @@ public class Admin extends User {
     }
 
     public boolean checkTicket(Ticket ticket) {
-        return true;
+        return ticket.getEventCode() >= 0;
     }
 }

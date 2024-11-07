@@ -108,11 +108,11 @@ public class Ticket extends Identity {
     }
 
     public boolean shared(String phoneNumber) {
-        return true;
+        return phoneNumber != null;
     }
 
     public boolean shared(String phoneNumber, String email) {
-        return true;
+        return phoneNumber != null && email != null;
     }
 
     public long getCreationTime() {
